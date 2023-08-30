@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.header { 
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.header > h1 {
+    padding-top: 5px;
+    position: absolute;
+    color: #ffffff;
+}
+
+#curtain {
+    min-width: 100%;
+    height: 60px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 40px;
+    background-color: rgb(54, 49, 49);
+}
+
+.movieCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 400px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+.movieTitle {
+    font-size: xx-large;
+    background-color: #bef0ba;
+    width: 100%;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: blanchedalmond;
+}
+
+#addMovieBtn {
+    font-size: xx-large;
+    height: 400px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px;
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+#addMovieBtn:hover {
+    background-color: rgb(146, 144, 144);
+    cursor: pointer;
+}
+
+#addMovieBtn:active {
+    transform: scale(.98);
+}
