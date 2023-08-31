@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Library</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    
 </head>
 <body>
     <div class="header">
@@ -13,16 +13,28 @@
         <h1 id="pageTitle">Movie Library</h1>
     </div>
     <div class="main">
-        <button id="addMovieBtn">+</button>
+        <button id="addMovieBtn" type="button">+</button>
+        <form action="movieData" id="movieInfo" class="movieForm">
+            <label for="movieName">Movie</label>
+            <input type="text" class="formInputs" id="movieName" required>
+            <label for="movieDir">Director</label>
+            <input type="text" class="formInputs" id="movieDir" required>
+            <label for="movie-runtime">Run time</label>
+            <input type="number" class="formInputs" id="movie-runtime" required>
+            <label for="watched-checkbox">Watched?</label>
+            <input type="checkbox" name="watched" id="watched-checkbox">
+            <input type="submit" id="confirmMovie">
+        </form>
         <div class="movieCards">
             <div class="movieTitle">Interstellar</div>
             <div class="director">Christopher Nolan</div>
-            <div class="runtime">2hr 49m</div>
+            <div class="runtime">169m</div>
             <button class="watchedBtn">Watched?</button>
         </div>
     </div>
     <div class="footer">
         <div id="credits">Website created by <a href="https://github.com/Dubonk">Kevin Dubon</a></div>
     </div>
+    <script src="script.js"></script>
     </body>
 </html>
