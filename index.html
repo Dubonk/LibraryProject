@@ -14,22 +14,21 @@
     </div>
     <div class="main">
         <button id="addMovieBtn" type="button">+</button>
-        <form action="movieData" id="movieInfo" class="movieForm">
-            <label for="movieName">Movie</label>
-            <input type="text" class="formInputs" id="movieName" required>
-            <label for="movieDir">Director</label>
-            <input type="text" class="formInputs" id="movieDir" required>
-            <label for="movie-runtime">Run time</label>
-            <input type="number" class="formInputs" id="movie-runtime" required>
-            <label for="watched-checkbox">Watched?</label>
+        <form action="/script.js" method="get" id="movieInfo" class="movieForm">
+            <label for="movieTitle">Movie</label>
+            <input type="text" class="formInputs" id="movieTitle" required>
+            <label for="movieDirector">Director</label>
+            <input type="text" class="formInputs" id="movieDirector" required>
+            <label for="movieRuntime">Run time</label>
+            <input type="number" class="formInputs" id="movieRuntime" required>
+            <label for="watched-checkbox">Seen?</label>
             <input type="checkbox" name="watched" id="watched-checkbox">
-            <input type="submit" id="confirmMovie">
+            <input type="submit" id="submitInfo">
         </form>
         <div class="movieCards">
             <div class="movieTitle">Interstellar</div>
             <div class="director">Christopher Nolan</div>
             <div class="runtime">169m</div>
-            <button class="watchedBtn">Watched?</button>
         </div>
     </div>
     <div class="footer">
