@@ -2,7 +2,10 @@ const main = document.querySelector('.main');
 const movieBtn = document.querySelector('#addMovieBtn');
 const movieForm = document.querySelector('#movieInfo');
 const submitMovie = document.querySelector('#submitInfo');
-const movieCard = document.querySelector('.movieCards');
+let movieCard = document.createElement('div');
+let mName = document.createElement('div');
+let mDir = document.createElement('div');
+let mTime = document.createElement('div');
 let title; // = document.querySelector('#movieTitle').value;
 let director; // = document.querySelector('#movieDirector').value;
 let runtime; // = document.querySelector('#movieRuntime').value;
@@ -31,19 +34,28 @@ submitMovie.addEventListener('click', (e) => {
 //forEach loop?//
 function displayMovie() {
 for(let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary);
+    mName.innerText = title;
+    mDir.innerText = director;
+    mTime.textContent = runtime;
+    movieCard.appendChild(mName);
+    movieCard.appendChild(mDir);
+    movieCard.appendChild(mTime);
+    main.appendChild(movieCard);
 }}
 
 //styleCards() should toggle class name to the div//
 function styleCards() {
-   
+    //mName.classList.add(".movieTitle");
+    //mDir.classList.add(".director");
+    //mTime.classList.add(".runtime");
+    movieCard.classList.add("movieCards");
 }
 
 function addMovieToLibrary() {
     let newMovie = new Movie(title, director, runtime, watched);
     myLibrary.push(newMovie);
-    displayMovie()
-    styleCards()
+    displayMovie();
+    styleCards();
 }
 
 //If movie is watched, make background color green, if movie has not been watched, leave alone?//
@@ -64,5 +76,3 @@ function showForm() {
 movieBtn.addEventListener('click', () => {
     showForm();
 });
-
-//Hello World!//
