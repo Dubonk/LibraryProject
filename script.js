@@ -2,14 +2,15 @@ const main = document.querySelector('.main');
 const movieBtn = document.querySelector('#addMovieBtn');
 const movieForm = document.querySelector('#movieInfo');
 const submitMovie = document.querySelector('#submitInfo');
-let movieCard = document.createElement('div');
-let mName = document.createElement('div');
-let mDir = document.createElement('div');
-let mTime = document.createElement('div');
-let title; // = document.querySelector('#movieTitle').value;
-let director; // = document.querySelector('#movieDirector').value;
-let runtime; // = document.querySelector('#movieRuntime').value;
-let watched; // = document.querySelector('#watched-checkbox').value;
+const removeMovie = document.createElement('button');
+let movieCard;
+let mName;
+let mDir;
+let mTime;
+let title;
+let director;
+let runtime;
+let watched;
 const myLibrary = [];
 movieForm.style.display = 'none';
 
@@ -30,24 +31,38 @@ submitMovie.addEventListener('click', (e) => {
     movieForm.reset();
 });
 
+removeMovie.addEventListener('click', (e) => {
+    
+})
+
 //displayMovie() should add the title, director, runtime, and watched parameters to a div that has 4 sections.//
 //forEach loop?//
 function displayMovie() {
-for(let i = 0; i < myLibrary.length; i++) {
+myLibrary.forEach(Movie => {
+    movieCard = document.createElement('div');
+    mName = document.createElement('div');
+    mDir = document.createElement('div');
+    mTime = document.createElement('div');
+    watched = document.querySelector('#watched-checkbox');
     mName.innerText = title;
     mDir.innerText = director;
     mTime.textContent = runtime;
+});
+    if(mName.innerText !== "") {
+        if(watched.checked == true) {
+            mName.style.backgroundColor = '#bef0ba';}
     movieCard.appendChild(mName);
     movieCard.appendChild(mDir);
     movieCard.appendChild(mTime);
     main.appendChild(movieCard);
-}}
+    }
+;}
 
 //styleCards() should toggle class name to the div//
 function styleCards() {
-    //mName.classList.add(".movieTitle");
-    //mDir.classList.add(".director");
-    //mTime.classList.add(".runtime");
+    mName.classList.add("movieTitle");
+    mDir.classList.add("director");
+    mTime.classList.add("runtime");
     movieCard.classList.add("movieCards");
 }
 
@@ -76,3 +91,5 @@ function showForm() {
 movieBtn.addEventListener('click', () => {
     showForm();
 });
+
+removeMovie.innerText = "Remove";

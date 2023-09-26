@@ -16,20 +16,15 @@
         <button id="addMovieBtn" type="button">+</button>
         <form action="/script.js" method="get" id="movieInfo" class="movieForm">
             <label for="movieTitle">Movie</label>
-            <input type="text" class="formInputs" id="movieTitle" required>
+            <input type="text" class="formInputs" id="movieTitle" placeholder="Required" required>
             <label for="movieDirector">Director</label>
-            <input type="text" class="formInputs" id="movieDirector" required>
+            <input type="text" class="formInputs" id="movieDirector" placeholder="Not Required">
             <label for="movieRuntime">Run time</label>
-            <input type="number" class="formInputs" id="movieRuntime" required>
-            <label for="watched-checkbox">Seen?</label>
-            <input type="checkbox" name="watched" id="watched-checkbox">
+            <input type="number" class="formInputs" id="movieRuntime" placeholder="Not Required">
+            <label for="watched-checkbox">Have you watched it?</label>
+            <input type="checkbox" name="watched" id="watched-checkbox" checked="">
             <input type="submit" id="submitInfo">
         </form>
-        <div class="movieCards">
-            <div class="movieTitle">Interstellar</div>
-            <div class="director">Christopher Nolan</div>
-            <div class="runtime">169m</div>
-        </div>
     </div>
     <div class="footer">
         <div id="credits">Website created by <a href="https://github.com/Dubonk">Kevin Dubon</a></div>
