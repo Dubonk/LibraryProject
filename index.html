@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Library</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="buttons.css">
     
 </head>
 <body>
@@ -21,8 +22,11 @@
             <input type="text" class="formInputs" id="movieDirector" placeholder="Not Required">
             <label for="movieRuntime">Run time</label>
             <input type="number" class="formInputs" id="movieRuntime" placeholder="Not Required">
-            <label for="watched-checkbox">Have you watched it?</label>
-            <input type="checkbox" name="watched" id="watched-checkbox" checked="">
+            <div>watched it?</div>
+            <div class="checkbox-wrapper-34">
+                <input class='tgl tgl-ios' id='toggle-34' type='checkbox'>
+                <label class='tgl-btn' for='toggle-34'></label>
+              </div>
             <input type="submit" id="submitInfo">
         </form>
     </div>

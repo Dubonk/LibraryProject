@@ -69,13 +69,13 @@ body {
 }
 
 .formInputs {
+    text-align: center;
     border-radius: 5px;
     border: none;
 }
 
 .movieTitle {
     font-size: xx-large;
-    background-color: #f0bad3;
     width: 100%;
     text-align: center;
 }
@@ -87,32 +87,4 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: blanchedalmond;
-}
-
-#addMovieBtn {
-    font-size: xx-large;
-    height: 400px;
-    width: 250px;
-    border-radius: 10px;
-    border: 1px;
-    background-color: rgb(199, 199, 199);
-    box-shadow: 0px 3px 10px rgb(0, 0, 0);
-}
-
-#addMovieBtn:hover {
-    background-color: rgb(146, 144, 144);
-    cursor: pointer;
-}
-
-#addMovieBtn:active {
-    transform: scale(.98);
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: green;
 }

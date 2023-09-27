@@ -2,7 +2,6 @@ const main = document.querySelector('.main');
 const movieBtn = document.querySelector('#addMovieBtn');
 const movieForm = document.querySelector('#movieInfo');
 const submitMovie = document.querySelector('#submitInfo');
-const removeMovie = document.createElement('button');
 let movieCard;
 let mName;
 let mDir;
@@ -19,43 +18,74 @@ function Movie(title, director, runtime, watched) {
     this.director = director
     this.runtime = runtime
     this.watched = watched
+    this.movieId = `movie${++Movie.id}`;
 }
+
+Movie.id = 0;
+
 
 submitMovie.addEventListener('click', (e) => {
     e.preventDefault();
     title = document.querySelector('#movieTitle').value;
     director = document.querySelector('#movieDirector').value;
     runtime = document.querySelector('#movieRuntime').value;
-    watched = document.querySelector('#watched-checkbox').value;
+    watched = document.querySelector('#toggle-34').value;
     addMovieToLibrary();
     movieForm.reset();
 });
 
-removeMovie.addEventListener('click', (e) => {
-    
-})
+function updateMovieIds() {
+    myLibrary.forEach((movie, index) => {
+        movie.movieId = `movie${index + 1}`;
+    });
+    console.log(myLibrary);
+}
+
+function remMovie(buttonElement) {
+    const movieId = buttonElement.parentElement.getAttribute('data-movie-id');
+    const findMovieIndex = myLibrary.findIndex(
+        (element) => element.movieId === movieId
+    );
+
+    if (findMovieIndex !== -1) {
+        myLibrary.splice(findMovieIndex, 1);
+        buttonElement.parentElement.remove();
+        updateMovieIds(); // Update movie IDs after deletion
+    }
+}
 
 //displayMovie() should add the title, director, runtime, and watched parameters to a div that has 4 sections.//
 //forEach loop?//
 function displayMovie() {
-myLibrary.forEach(Movie => {
+myLibrary.forEach((movie) => {
     movieCard = document.createElement('div');
+    movieCard.classList.add(`${movie.movieId}`);
+    movieCard.setAttribute('data-movie-id', movie.movieId);
     mName = document.createElement('div');
     mDir = document.createElement('div');
     mTime = document.createElement('div');
-    watched = document.querySelector('#watched-checkbox');
+    watched = document.querySelector('#toggle-34');
     mName.innerText = title;
     mDir.innerText = director;
     mTime.textContent = runtime;
 });
     if(mName.innerText !== "") {
         if(watched.checked == true) {
-            mName.style.backgroundColor = '#bef0ba';}
+            movieCard.style.backgroundColor = '#bef0ba';
+        }
     movieCard.appendChild(mName);
     movieCard.appendChild(mDir);
     movieCard.appendChild(mTime);
+    
+    let btn = document.createElement('button');
+    btn.appendChild(document.createTextNode("Remove movie"));
     main.appendChild(movieCard);
-    }
+    movieCard.appendChild(btn); 
+    btn.addEventListener('click', (event) => {
+        event.target.parentElement.remove();
+        remMovie(event.target);
+    });
+}
 ;}
 
 //styleCards() should toggle class name to the div//
@@ -64,7 +94,9 @@ function styleCards() {
     mDir.classList.add("director");
     mTime.classList.add("runtime");
     movieCard.classList.add("movieCards");
+
 }
+
 
 function addMovieToLibrary() {
     let newMovie = new Movie(title, director, runtime, watched);
@@ -72,11 +104,6 @@ function addMovieToLibrary() {
     displayMovie();
     styleCards();
 }
-
-//If movie is watched, make background color green, if movie has not been watched, leave alone?//
-//Create a form that takes all 4 parameters but make it hidden until button is pressed?//
-
-
 
 function showForm() {
        movieForm.style.display = movieForm.style.display === 'none' ? 'flex' : 'none'; 
@@ -91,5 +118,3 @@ function showForm() {
 movieBtn.addEventListener('click', () => {
     showForm();
 });
-
-removeMovie.innerText = "Remove";
