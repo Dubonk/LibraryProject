@@ -30,18 +30,30 @@ submitMovie.addEventListener('click', (e) => {
     director = document.querySelector('#movieDirector').value;
     runtime = document.querySelector('#movieRuntime').value;
     watched = document.querySelector('#toggle-34').value;
-    addMovieToLibrary();
-    movieForm.reset();
+    if (title.trim() === '') {
+        // Check if any of the required fields are empty
+        alert('Please fill in all required fields.');
+    } else {
+        addMovieToLibrary();
+        movieForm.reset();
+    }
 });
 
 function updateMovieIds() {
     myLibrary.forEach((movie, index) => {
         movie.movieId = `movie${index + 1}`;
     });
-    console.log(myLibrary);
+    Movie.id = myLibrary.length;
+}
+
+function updateMovieIdsInLibrary() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        myLibrary[i].movieId = `movie${i + 1}`;
+    }
 }
 
 function remMovie(buttonElement) {
+    updateMovieIdsInLibrary();
     const movieId = buttonElement.parentElement.getAttribute('data-movie-id');
     const findMovieIndex = myLibrary.findIndex(
         (element) => element.movieId === movieId
@@ -50,7 +62,6 @@ function remMovie(buttonElement) {
     if (findMovieIndex !== -1) {
         myLibrary.splice(findMovieIndex, 1);
         buttonElement.parentElement.remove();
-        updateMovieIds(); // Update movie IDs after deletion
     }
 }
 
@@ -71,22 +82,28 @@ myLibrary.forEach((movie) => {
 });
     if(mName.innerText !== "") {
         if(watched.checked == true) {
-            movieCard.style.backgroundColor = '#bef0ba';
+            movieCard.classList.toggle('greenBG');
         }
     movieCard.appendChild(mName);
     movieCard.appendChild(mDir);
     movieCard.appendChild(mTime);
-    
+    let btn2 = document.createElement('button');
+    btn2.appendChild(document.createTextNode('Watched?'));
     let btn = document.createElement('button');
     btn.appendChild(document.createTextNode("Remove movie"));
     main.appendChild(movieCard);
-    movieCard.appendChild(btn); 
+    movieCard.appendChild(btn);
+    movieCard.appendChild(btn2);
+        btn2.addEventListener('click', (event) => {
+            event.target.parentElement.classList.toggle("greenBG"); 
+        });
+
     btn.addEventListener('click', (event) => {
         event.target.parentElement.remove();
         remMovie(event.target);
     });
+};
 }
-;}
 
 //styleCards() should toggle class name to the div//
 function styleCards() {
@@ -101,6 +118,7 @@ function styleCards() {
 function addMovieToLibrary() {
     let newMovie = new Movie(title, director, runtime, watched);
     myLibrary.push(newMovie);
+    updateMovieIds(newMovie);
     displayMovie();
     styleCards();
 }
