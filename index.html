@@ -16,15 +16,14 @@
     <div class="main">
         <button id="addMovieBtn" type="button">+</button>
         <form action="/script.js" method="get" id="movieInfo" class="movieForm">
-            <label for="movieTitle">Movie</label>
+            <label id="movieName" for="movieTitle">Movie</label>
             <input type="text" class="formInputs" id="movieTitle" placeholder="Required" required>
             <label for="movieDirector">Director</label>
             <input type="text" class="formInputs" id="movieDirector" placeholder="Not Required">
             <label for="movieRuntime">Run time</label>
             <input type="number" class="formInputs" id="movieRuntime" placeholder="Not Required">
-            <div>watched it?</div>
             <div class="checkbox-wrapper-34">
-                <input class='tgl tgl-ios' id='toggle-34' type='checkbox'>
+                <input class='tgl tgl-ios' id='toggle-34' type='checkbox'>Watched?
                 <label class='tgl-btn' for='toggle-34'></label>
               </div>
             <input type="submit" id="submitInfo">

@@ -76,7 +76,7 @@ myLibrary.forEach((movie) => {
     mDir = document.createElement('div');
     mTime = document.createElement('div');
     watched = document.querySelector('#toggle-34');
-    mName.innerText = title;
+    mName.innerText = title.toUpperCase();
     mDir.innerText = director;
     mTime.textContent = runtime;
 });
@@ -92,8 +92,8 @@ myLibrary.forEach((movie) => {
     let btn = document.createElement('button');
     btn.appendChild(document.createTextNode("Remove movie"));
     main.appendChild(movieCard);
-    movieCard.appendChild(btn);
     movieCard.appendChild(btn2);
+    movieCard.appendChild(btn);
         btn2.addEventListener('click', (event) => {
             event.target.parentElement.classList.toggle("greenBG"); 
         });
@@ -127,9 +127,11 @@ function showForm() {
        movieForm.style.display = movieForm.style.display === 'none' ? 'flex' : 'none'; 
        if(movieForm.style.display === 'none') {
         movieBtn.textContent = '+'
+        movieBtn.style.color = 'rgb(5, 107, 5)';
        }
        else if (movieForm.style.display === 'flex') {
-        movieBtn.textContent = 'X'
+        movieBtn.textContent = 'x';
+        movieBtn.style.color = 'rgb(163, 39, 39)';
     }
     }
 
