@@ -17,6 +17,9 @@ button , #submitInfo{
   margin-top: 20px;
 }
 
+#submitInfo:active {
+  transform: scale(0.95);
+}
 
 button:hover , #submitInfo:hover {
   background-color: #0000001a;
@@ -38,7 +41,7 @@ button:hover , #submitInfo:hover {
   cursor: pointer;
 }
 
-#addMovieBtn:active {
+button:active {
   transform: scale(.98);
 }
 
